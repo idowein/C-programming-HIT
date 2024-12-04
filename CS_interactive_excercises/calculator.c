@@ -3,7 +3,7 @@
 #include <math.h>
 
 void main() {
-	// This program implement calculator with basic math features
+	// This program implement calculator with basic math features based on if function 
 
 	printf("Welcome to my calculator!\n");
 
