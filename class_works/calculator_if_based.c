@@ -2,7 +2,7 @@
 # include <stdio.h>
 #include <math.h>
 
-void main() {
+void main() {	
 	// This program implement calculator with basic math features based on if function 
 
 	printf("Welcome to my calculator!\n");
@@ -10,6 +10,7 @@ void main() {
 	double a, b, sum;
 	char math_sign;
 
+	printf("please type one number\n");
 	printf("please type one number\n");
 	scanf("%lf", &a);
 
