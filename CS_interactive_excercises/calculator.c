@@ -1,31 +1,59 @@
+#define _CRT_SECURE_NO_WARNINGS
 # include <stdio.h>
+#include <math.h>
 
-int main() {
+void main() {
+	// This program implement calculator with basic math features
 
-	int x = 8, y = 0; 
+	printf("Welcome to my calculator!\n");
 
-	// x ++
-	y = x++; 
-	printf("x = %d, y = %d \n", x, y);
-	x = 8;
-	y = 0;
+	double a, b, sum;
+	char math_sign;
 
-	// ++ x 
-	y = ++x;
-	printf("x = %d, y = %d \n", x, y);
-	x = 8;
-	y = 0;
+	printf("please type one number\n");
+	scanf("%lf", &a);
 
-	// -- x 
-	y = --x;
-	printf("x = %d, y = %d \n", x, y);
-	x = 8;
-	y = 0;
+	rewind(stdin); // cleasr the input from keyboard
+	printf("please type math operation\n");
+	scanf("%ch", &math_sign);
 
-	// x -- 
-	y = x--;
-	printf("x = %d, y = %d \n", x, y);
-	x = 8;
-	y = 0;
+	printf("please type one number\n");
+	scanf("%lf", &b);
+
+	if (math_sign != '+' || '-' || '*' || '/') {
+
+		if (math_sign == '+') {
+			sum = a + b;
+			printf("The sum is: %lf\n", sum);
+			return;
+		}
+
+		if (math_sign == '-') {
+			sum = a - b;
+			printf("The sum is: %lf\n", sum);
+			return;
+		}
+
+		if (math_sign == '/' && b != 0) {
+			sum = a / b;
+			printf("The sum is: %lf\n", sum);
+			return;
+		}
+
+		if (math_sign == '*') {
+			sum = a * b;
+			printf("The sum is: %lf\n", sum);
+			return;
+		}
+
+		if (math_sign == '^') {
+			sum = pow(a, b);
+			printf("The sum is: %lf\n", sum);
+			return;
+		}
+
+	}
+
+	printf("Invalid result!");
 
 }
