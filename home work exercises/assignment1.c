@@ -68,9 +68,9 @@ void Ex1() {
 
 void Ex2() {
 	int num1 = 0, num2 = 0;
-	printf("\nplease enter the lower bound: ");
+	printf("\nplease enter the lower bound: \n");
 	num1 = inputIntNonNegative();
-	printf("please enter the upper bound: ");
+	printf("\nplease enter the upper bound: \n");
 	num2 = inputIntNonNegative();
 	primeNumbers(num1, num2);
 }
@@ -162,14 +162,13 @@ int numberLength(int num) {
 
 int inputIntNonNegative() {
 	int NonNegative;
-	printf("Please enter positive numbers (input >= 0): \n");
-	scanf("&d", &NonNegative);
+	scanf("%d", &NonNegative);
 	while (NonNegative < 0) {
-		rewind(NonNegative);
+		//rewind(NonNegative);
 		printf("This is negative number. Please enter positive numbers (input >= 0): \n");
-		scanf("&d", &NonNegative);
+		scanf("%d", &NonNegative);
 	}
-	printf("The input is: ", NonNegative);
+	printf("The input is: %d", NonNegative);
 	return NonNegative;
 }
 
