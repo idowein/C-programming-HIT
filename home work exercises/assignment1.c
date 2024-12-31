@@ -1,5 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #define N 3
+#include <math.h>
 
 /*Libraries*/
 #include <stdio.h>
@@ -68,9 +69,13 @@ void Ex1() {
 
 void Ex2() {
 	int num1 = 0, num2 = 0;
-	printf("\nplease enter the lower bound: \n");
+	printf("please enter the lower bound: \n");
 	num1 = inputIntNonNegative();
-	printf("\nplease enter the upper bound: \n");
+	while (prime(num1) != 1) {
+		printf("please enter the lower bound: \n");
+		scanf("%d", &num1);
+	}
+	printf("please enter the upper bound: \n");
 	num2 = inputIntNonNegative();
 	primeNumbers(num1, num2);
 }
@@ -149,7 +154,28 @@ void primeNumbers(int num1, int num2) {
 }
 
 int prime(int num) {
-	/*Write Code Here!*/
+	/* 
+	Distinguishing between prime or not prime numbers
+	Scheme: 
+	1. input <= 1 is not prime (question definition)
+	2. if input has any divider (between number bigger than 1 and his sqaure) that modulo division gives 0 is not a prime
+	3. other case - prime
+	*/
+	double num_sqrt = sqrt(num);
+	if (num <= 1) {
+		/* Action 1 - The defenition of the question */
+		printf("This is not a prime number! \n");
+		return 0;
+	}
+	for (int i = 1; i <= num_sqrt; i++) {
+
+		if ((num % i == 0) && (i != 1)) {
+			printf("This is not a prime number! \n");
+			return 0;
+		}
+	}
+	printf("This is a prime number! \n");
+	return 1;
 }
 
 int rotateNumber(int num, int spins) {
@@ -161,14 +187,15 @@ int numberLength(int num) {
 }
 
 int inputIntNonNegative() {
+	/* Checking that the input number is not negative */
 	int NonNegative;
 	scanf("%d", &NonNegative);
 	while (NonNegative < 0) {
-		//rewind(NonNegative);
+		//while the input is negative keep get another input
 		printf("This is negative number. Please enter positive numbers (input >= 0): \n");
 		scanf("%d", &NonNegative);
 	}
-	printf("The input is: %d", NonNegative);
+	printf("The input is: %d\n", NonNegative);
 	return NonNegative;
 }
 
