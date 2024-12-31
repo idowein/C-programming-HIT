@@ -6,8 +6,8 @@
 
 /*
 	Assigned by:
-		Ido Weinstock #211677083
-		Evyatar Hagay #
+		Ido Weinstock, Group 3 #211677083
+		Evyatar Hagay, Group 4 #209164250
 */
 
 /* Function declarations */
@@ -60,7 +60,7 @@ int main()
 
 void Ex1() {
 	int num1 = 0, num2 = 0, answer = 0;
-	printf("\nplease enter two multipliers: ");
+	printf("\nplease enter two multipliers: \n");
 	scanf("%d%d", &num1, &num2);
 	answer = multiplication(num1, num2);
 	printf("%d * %d = %d\n", num1, num2, answer);
@@ -88,7 +88,45 @@ void Ex3() {
 /* Sub-Function definitions */
 
 int multiplication(int num1, int num2) {
-	/*Write Code Here!*/
+	/* Scheme:
+	1. Checking sum value based on the input (positive or negative)
+	2. Calculating the absolute value efficiently Based on the absolute value of the input (based on 3 cases)
+	*/
+	int sum = 0; // Summary value
+	/* Seperation of positive and negative cases: */
+	int positive_or_negative_sign = 1; // flag for the sum sign: 1 for positive values and -1 for negative values
+	if (num1 < 0 || num2 < 0) {
+		positive_or_negative_sign = -1;
+	}
+	/* Efficiency explaination by 3 cases:
+	1. num1 > num2
+	2. num1 < num2
+	3.num1 == num2
+	*/
+	num1 = abs(num1);
+	num2 = abs(num2);
+	if (num1 > num2) { 
+		/* Calculating the case of num1 > num2 */
+		for (int i = 0; i < num2; i++) {
+			sum += num1;
+		}
+		sum *= positive_or_negative_sign;
+		return sum;
+	}
+	if (num1 < num2) {
+		/* Calculating the case of num1 < num2 */
+		for (int i = 0; i < num1; i++) {
+			sum += num2;
+		}
+		sum *= positive_or_negative_sign;
+		return sum;
+	}
+	/* Calculating the case of num1 == num2 */
+	for (int i = 0; i < num1; i++) {
+		sum += num2;
+	}
+	sum *= positive_or_negative_sign;
+	return sum;
 }
 
 void primeNumbers(int num1, int num2) {
