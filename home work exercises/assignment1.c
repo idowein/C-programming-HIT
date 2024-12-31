@@ -165,10 +165,12 @@ int inputIntNonNegative() {
 	printf("Please enter positive numbers (input >= 0): \n");
 	scanf("&d", &NonNegative);
 	while (NonNegative < 0) {
+		rewind(NonNegative);
 		printf("This is negative number. Please enter positive numbers (input >= 0): \n");
 		scanf("&d", &NonNegative);
 	}
-	printf("The input is ");
+	printf("The input is: ", NonNegative);
+	return NonNegative;
 }
 
 /* ------------------- */
