@@ -88,44 +88,59 @@ void Ex3() {
 /* Sub-Function definitions */
 
 int multiplication(int num1, int num2) {
-	/* Scheme:
-	1. Checking sum value based on the input (positive or negative)
-	2. Calculating the absolute value efficiently Based on the absolute value of the input (based on 3 cases)
+	/*
+	Scheme: 
+	1. Checking sum value's sign (positive or negative)
+	2. Calculating the value efficiently
 	*/
-	int sum = 0; // Summary value
-	/* Seperation of positive and negative cases: */
-	int positive_or_negative_sign = 1; // flag for the sum sign: 1 for positive values and -1 for negative values
+	// Action number 1 - Checking sum value's sign
+	int sum_sign = 1;
 	if (num1 < 0 || num2 < 0) {
-		positive_or_negative_sign = -1;
+		sum_sign = -1;
 	}
-	/* Efficiency explaination by 3 cases:
+	if (num1 < 0 && num2 < 0) {
+		sum_sign = 1;
+	}
+	int sum = 0; // Summary value
+	/* 
+	Action 2 - Efficiency explaination by 3 cases:
 	1. num1 > num2
 	2. num1 < num2
 	3.num1 == num2
 	*/
-	num1 = abs(num1);
-	num2 = abs(num2);
-	if (num1 > num2) { 
+	if (abs(num1) > abs(num2)) { 
 		/* Calculating the case of num1 > num2 */
-		for (int i = 0; i < num2; i++) {
-			sum += num1;
+		for (int i = 0; i < abs(num2); i++) {
+			if (sum_sign == 1) {
+				sum += abs(num1);
+			}
+			if (sum_sign == -1) {
+				sum -= abs(num1);
+			}
 		}
-		sum *= positive_or_negative_sign;
 		return sum;
 	}
-	if (num1 < num2) {
+	if (abs(num1) < abs(num2)) {
 		/* Calculating the case of num1 < num2 */
-		for (int i = 0; i < num1; i++) {
-			sum += num2;
+		for (int i = 0; i < abs(num1); i++) {
+			if (sum_sign == 1) {
+				sum += abs(num2);
+			}
+			if (sum_sign == -1) {
+				sum -= abs(num2);
+			}
 		}
-		sum *= positive_or_negative_sign;
 		return sum;
 	}
 	/* Calculating the case of num1 == num2 */
-	for (int i = 0; i < num1; i++) {
-		sum += num2;
+	for (int i = 0; i < abs(num1); i++) {
+		if (sum_sign == 1) {
+			sum += abs(num1);
+		}
+		if (sum_sign == -1) {
+			sum -= abs(num1);
+		}
 	}
-	sum *= positive_or_negative_sign;
 	return sum;
 }
 
@@ -146,7 +161,14 @@ int numberLength(int num) {
 }
 
 int inputIntNonNegative() {
-	/*Write Code Here!*/
+	int NonNegative;
+	printf("Please enter positive numbers (input >= 0): \n");
+	scanf("&d", &NonNegative);
+	while (NonNegative < 0) {
+		printf("This is negative number. Please enter positive numbers (input >= 0): \n");
+		scanf("&d", &NonNegative);
+	}
+	printf("The input is ");
 }
 
 /* ------------------- */
