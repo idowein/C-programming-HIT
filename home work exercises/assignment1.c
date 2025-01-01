@@ -71,10 +71,6 @@ void Ex2() {
 	int num1 = 0, num2 = 0;
 	printf("please enter the lower bound: \n");
 	num1 = inputIntNonNegative();
-	while (prime(num1) != 1) {
-		printf("please enter the lower bound: \n");
-		scanf("%d", &num1);
-	}
 	printf("please enter the upper bound: \n");
 	num2 = inputIntNonNegative();
 	primeNumbers(num1, num2);
@@ -150,7 +146,16 @@ int multiplication(int num1, int num2) {
 }
 
 void primeNumbers(int num1, int num2) {
-	/*Write Code Here!*/
+	int lower_num = fmin(num1, num2);
+	int max_num = fmax(num1, num2);
+	printf("The prime numbers in that range are : ");
+	while (lower_num <= max_num) {
+		if (prime(lower_num) == 1) {
+			printf("%d, ", lower_num);
+		}
+		lower_num ++;
+	}
+	printf("and that's it!\n");
 }
 
 int prime(int num) {
@@ -164,17 +169,15 @@ int prime(int num) {
 	double num_sqrt = sqrt(num);
 	if (num <= 1) {
 		/* Action 1 - The defenition of the question */
-		printf("This is not a prime number! \n");
 		return 0;
 	}
 	for (int i = 1; i <= num_sqrt; i++) {
-
+		/* Action 2 */
 		if ((num % i == 0) && (i != 1)) {
-			printf("This is not a prime number! \n");
 			return 0;
 		}
 	}
-	printf("This is a prime number! \n");
+	/* Action 3 */
 	return 1;
 }
 
