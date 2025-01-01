@@ -122,7 +122,7 @@ int multiplication(int num1, int num2) {
 		return sum;
 	}
 	if (abs(num1) < abs(num2)) {
-		/* Calculating the case of num1 < num2 */
+		// Calculating the case of num1 < num2
 		for (int i = 0; i < abs(num1); i++) {
 			if (sum_sign == 1) {
 				sum += abs(num2);
@@ -133,7 +133,7 @@ int multiplication(int num1, int num2) {
 		}
 		return sum;
 	}
-	/* Calculating the case of num1 == num2 */
+	// Calculating the case of num1 == num2 
 	for (int i = 0; i < abs(num1); i++) {
 		if (sum_sign == 1) {
 			sum += abs(num1);
@@ -146,9 +146,16 @@ int multiplication(int num1, int num2) {
 }
 
 void primeNumbers(int num1, int num2) {
+	/*
+	Scheme:
+	1. find the range (min to max)
+	2. use "prime" function for detecting and printing each prime number in the given range
+	*/
+	// Action 1
 	int lower_num = fmin(num1, num2);
 	int max_num = fmax(num1, num2);
 	printf("The prime numbers in that range are : ");
+	// Action 2
 	while (lower_num <= max_num) {
 		if (prime(lower_num) == 1) {
 			printf("%d, ", lower_num);
@@ -168,11 +175,11 @@ int prime(int num) {
 	*/
 	double num_sqrt = sqrt(num);
 	if (num <= 1) {
-		/* Action 1 - The defenition of the question */
+		// Action 1 - The defenition of the question 
 		return 0;
 	}
 	for (int i = 1; i <= num_sqrt; i++) {
-		/* Action 2 */
+		// Action 2
 		if ((num % i == 0) && (i != 1)) {
 			return 0;
 		}
@@ -182,11 +189,39 @@ int prime(int num) {
 }
 
 int rotateNumber(int num, int spins) {
-	/*Write Code Here!*/
+	/* 
+	scheme:
+	1. Check if spins % length == 0. if yes, there is no need for calculations. else: 
+	2. In each iteration to find the left digit
+	3. Paste the left digit in the right side of the number
+	*/
+	
+	int num_length = numberLength(num);
+	// Action 1
+	if (spins % num_length == 0) {
+		return num;
+	}
+	int division_num = pow(10, (num_length - 1)), left_digit, spinned_num = num;
+	for (int i = 0; i < spins; i++) {
+		left_digit = spinned_num / division_num; // Action 2
+		spinned_num = (spinned_num % division_num) * 10 + left_digit; // Action 3
+	}
+	return spinned_num;
 }
 
 int numberLength(int num) {
-	/*Write Code Here!*/
+	/*
+	Return digit's length of input.
+	Scheme:
+	1. while input bigger than one digit value "cut" the last digit and increase the length in one.
+	*/
+	int length = 1;
+	while (num > 9)
+	{
+		num /= 10;
+		length ++;
+	}
+	return length;
 }
 
 int inputIntNonNegative() {
