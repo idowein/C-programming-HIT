@@ -201,6 +201,7 @@ int rotateNumber(int num, int spins) {
 	if (spins % num_length == 0) {
 		return num;
 	}
+	spins %= num_length; // making the iterations more efficient
 	int division_num = pow(10, (num_length - 1)), left_digit, spinned_num = num;
 	for (int i = 0; i < spins; i++) {
 		left_digit = spinned_num / division_num; // Action 2
