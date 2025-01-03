@@ -152,8 +152,8 @@ void primeNumbers(int num1, int num2) {
 	2. use "prime" function for detecting and printing each prime number in the given range
 	*/
 	// Action 1
-	int lower_num = fmin(num1, num2);
-	int max_num = fmax(num1, num2);
+	int lower_num =num1;
+	int max_num =  num2;
 	printf("The prime numbers in that range are : ");
 	// Action 2
 	while (lower_num <= max_num) {
@@ -176,16 +176,19 @@ int prime(int num) {
 	double num_sqrt = sqrt(num);
 	if (num <= 1) {
 		// Action 1 - The defenition of the question 
-		return 0;
+		return 0; // not a prime number
 	}
-	for (int i = 1; i <= num_sqrt; i++) {
+	if (num == 2) return 1;
+	if (num % 2 == 0) return 0;
+	// ___________________________________________________To check if num is num % 2 == 0 && if num == 2 
+	for (int i = 3; i <= num_sqrt; i+=2) {
 		// Action 2
-		if ((num % i == 0) && (i != 1)) {
-			return 0;
+		if ((num % i == 0)) {
+			return 0; // not a prime number
 		}
 	}
-	/* Action 3 */
-	return 1;
+	// Action 3
+	return 1; // a prime number
 }
 
 int rotateNumber(int num, int spins) {
