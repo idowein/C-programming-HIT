@@ -109,37 +109,39 @@ int multiplication(int num1, int num2) {
 	2. num1 < num2
 	3.num1 == num2
 	*/
-	if (abs(num1) > abs(num2)) { 
+	int abs_num1 = abs(num1);
+	int abs_num2 = abs(num2);
+	if (abs_num1 > abs_num2) { 
 		/* Calculating the case of num1 > num2 */
-		for (int i = 0; i < abs(num2); i++) {
+		for (int i = 0; i < abs_num2; i++) {
 			if (sum_sign == 1) {
-				sum += abs(num1);
+				sum += abs_num1;
 			}
 			if (sum_sign == -1) {
-				sum -= abs(num1);
+				sum -= abs_num1;
 			}
 		}
 		return sum;
 	}
-	if (abs(num1) < abs(num2)) {
+	if (abs_num1 < abs_num2) {
 		// Calculating the case of num1 < num2
-		for (int i = 0; i < abs(num1); i++) {
+		for (int i = 0; i < abs_num1; i++) {
 			if (sum_sign == 1) {
-				sum += abs(num2);
+				sum += abs_num2;
 			}
 			if (sum_sign == -1) {
-				sum -= abs(num2);
+				sum -= abs_num2;
 			}
 		}
 		return sum;
 	}
 	// Calculating the case of num1 == num2 
-	for (int i = 0; i < abs(num1); i++) {
+	for (int i = 0; i < abs_num1; i++) {
 		if (sum_sign == 1) {
-			sum += abs(num1);
+			sum += abs_num1;
 		}
 		if (sum_sign == -1) {
-			sum -= abs(num1);
+			sum -= abs_num1;
 		}
 	}
 	return sum;
@@ -151,8 +153,8 @@ void primeNumbers(int num1, int num2) {
 	1. find the range (min to max)
 	2. use "prime" function for detecting and printing each prime number in the given range
 	*/
-	// Action 1
-	int lower_num =num1;
+	// Action 1 - num1 > num2 is given
+	int lower_num = num1;
 	int max_num =  num2;
 	printf("The prime numbers in that range are : ");
 	// Action 2
@@ -178,9 +180,8 @@ int prime(int num) {
 		// Action 1 - The defenition of the question 
 		return 0; // not a prime number
 	}
-	if (num == 2) return 1;
-	if (num % 2 == 0) return 0;
-	// ___________________________________________________To check if num is num % 2 == 0 && if num == 2 
+	if (num == 2) return 1; // 2 is a special prime number
+	if (num % 2 == 0) return 0; // checking only odd numbers (cut iterations by half)
 	for (int i = 3; i <= num_sqrt; i+=2) {
 		// Action 2
 		if ((num % i == 0)) {
