@@ -1,69 +1,30 @@
 # define _CRT_SECURE_NO_WARNINGS
 # include <stdio.h>
 
-void drawing_first_triangle(base_length, symbol) {
-
-	// a type triangle creating
-
-	for (int counter = 0; counter < base_length; counter ++) { // running on the rows
-		for (int i = -1; i < counter; i++) { // runnning on the base
-			printf("%c", symbol);
-		}
-		printf("\n");
-
+int factorial(input) {
+	/*
+	* Logical idea: calculating x! = x(x-1)(x-2)...
+	Scheme: 
+	1. special condition 0! = 1
+	2. loop - duplicating all the numbers that bigger than 0
+	*/
+	int sum = 1;
+	if (input == 0) return sum; // Action 1 - special condition
+	while (input>0){
+		// Action 2
+		sum *= input;
+		input--;
 	}
-}
-
-void drawing_second_triangle(base_length, symbol) {
-
-	// a type triangle creating
-
-	for (int counter = 0; counter < base_length; counter++) { // running on the rows
-		for (int i = 0 ; i < base_length - counter ; i++) { // printing the spaces in each row
-			printf(" ");
-		}
-		for (int i = -1; i < counter; i++) {
-			printf("%c", symbol);
-		}
-		printf("\n");
-
-	}
+	return sum;
 }
 
 void main() {
-
-	// algorithm idea is drawing triangle accordig to user's desire
-
-	char symbol;
-	int base_length, triangle_type;
-
-	// getting triangle type
-	printf("Please enter which kind of triangle you would like to draw (1 or 2)\n");
-	scanf("%d", &triangle_type);
-	printf("you chose %d triangle type\n", triangle_type);
-	while (triangle_type != 1 && triangle_type != 2) {
-		printf("Ivalid input, please enter 1 or 2\n");
-		scanf("%d", &triangle_type);
-		printf("you chose %d triangle type\n", triangle_type);
-	}
-
-	// getting a symbol
-	rewind(stdin);
-	printf("Please enter which symbol would you like to draw\n");
-	symbol = getchar();
-	printf("you chose %c as a symbol\n", symbol);
-
-	// getting a base length
-	printf("Please enter which base length would you like define\n");
-	scanf("%d", &base_length);
-	printf("you chose %d as a base length\n", base_length);
-
-	if (triangle_type == 1) {
-		drawing_first_triangle(base_length, symbol);
-	}
-
-	if (triangle_type == 2) {
-		drawing_second_triangle(base_length, symbol);
-	}
+	int input;
+	do {
+		printf("Please enter positive number\n");
+		scanf("%d", &input);
+	} while (input < 0);
+	int factorial_value = factorial(input);
+	printf("The factorial value of %d ! is %d\n", input, factorial_value);
 
 }
