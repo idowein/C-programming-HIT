@@ -1,5 +1,6 @@
 # define _CRT_SECURE_NO_WARNINGS
 # include <stdio.h>
+# include <math.h>
 
 int factorial(input) {
 	/*
@@ -18,6 +19,20 @@ int factorial(input) {
 	return sum;
 }
 
+int sum_squares(input) {
+	/*
+	Logical idea: calculating the summary of all the factorial numbers.
+	example: input = 4; sum_sqares = 4^2 + 3^2 + 2^2 + 1;
+	*/
+	int sum = 0;
+	while (input>=0){ // including special condition
+		// Action 1 - loop for calculating the summary
+		sum += pow(input, 2);
+		input--;
+	}
+	return sum;
+}
+
 void main() {
 	int input;
 	do {
@@ -25,6 +40,7 @@ void main() {
 		scanf("%d", &input);
 	} while (input < 0);
 	int factorial_value = factorial(input);
+	int sum_of_sqares_value = sum_squares(input);
 	printf("The factorial value of %d ! is %d\n", input, factorial_value);
-
+	printf("The sum of squares of %d ! is %d\n", input, sum_of_sqares_value);
 }
