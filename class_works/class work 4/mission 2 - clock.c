@@ -65,5 +65,4 @@ int input_checker() {
 	}
 	return input;
 }
-
 /* ------------------- */
