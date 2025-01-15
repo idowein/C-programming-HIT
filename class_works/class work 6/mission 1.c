@@ -5,7 +5,7 @@
 #include <math.h>
 
 /* Function declarations */
-int arr_creating();
+int arr_creating(int*);
 void under_average_printing();
 void above_average_printing();
 /* Declarations of other sub-functions */
@@ -20,20 +20,21 @@ int main()
 
 /* Function definitions */
 
-int arr_creating(int *grades_arr[]) {
+int arr_creating(int *grades_arr) {
 	int i = 0;
 	int avg = 0;
 	printf("Please enter your grades.\n");
 	do {
 		scanf_s("%d", &grades_arr[i]);
-		while (&grades_arr[i] < 0 || &grades_arr[i]>100) {
+		while (grades_arr[i] < 0 || grades_arr[i]>100) {
 			printf("Please enter valid grade\n");
 			scanf_s("%d", &grades_arr[i]);
 		}
-	} while (i < 6);
+		i++;
+	} while (i < 5);
 
-	for (int i = 0; i < 6; i++) {
-		avg += *grades_arr[i];
+	for (int i = 0; i < 5; i++) {
+		avg += grades_arr[i];
 	}
 	avg /= 5;
 	printf("The avg is %d\n", avg);
