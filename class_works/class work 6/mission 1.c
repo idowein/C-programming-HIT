@@ -5,43 +5,57 @@
 #include <math.h>
 
 /* Function declarations */
-int arr_creating(int*);
-void under_average_printing();
-void above_average_printing();
+float get_array_from_user(int*, int);
+int* get_input(int*);
 /* Declarations of other sub-functions */
-int value_QA();
+
 /* ------------------------------- */
 
-int main()
+void main()
 {
-	int grades_arr[5] ;
-	int grade_avg = arr_creating(&grades_arr[5]);
+	float avg;
+	int below_avg = 0, size, i, val;
+	int* arr = NULL;
+	arr = get_input(&size);
+	avg = get_array_from_user(arr, size);
+	for (i = 0; i < size; i++) {
+		val = arr[i];
+		if (val < avg) {
+			below_avg++;
+		}
+		else {
+			printf("%d above avg \n", val);
+		}
+	}
 }
 
 /* Function definitions */
 
-int arr_creating(int *grades_arr) {
-	int i = 0;
-	int avg = 0;
-	printf("Please enter your grades.\n");
-	do {
-		scanf_s("%d", &grades_arr[i]);
-		while (grades_arr[i] < 0 || grades_arr[i]>100) {
-			printf("Please enter valid grade\n");
-			scanf_s("%d", &grades_arr[i]);
-		}
-		i++;
-	} while (i < 5);
-
-	for (int i = 0; i < 5; i++) {
-		avg += grades_arr[i];
+float get_array_from_user(int* p, int size) {
+	int i, sum = 0;
+	for (i = 0; i < size; i++) {
+		sum += p[i];
 	}
-	avg /= 5;
-	printf("The avg is %d\n", avg);
-	return avg;
+	return sum / size;
+}
+
+int* get_input(int* arr_size) {
+	int input, k = 0, size;
+	int* p;
+	printf("Enter arr size\n");
+	scanf("%d", &size);
+	p = (int*)malloc(size * sizeof(int)); // Create dinamically (array depends on client) the array in the desired size
+	for (k = 0; k < size; k++) {
+		do {
+			printf("Print grade number %d\n", k);
+			scanf("%d", &input);
+		} while (input<0 || input>100);
+		p[k] = input;
+	}
+	*arr_size = size; // changing the referenced size
+	return p;
 }
 
 /* Sub-function definitions */
-
 
 /* ------------------- */
