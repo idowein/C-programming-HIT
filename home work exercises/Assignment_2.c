@@ -71,7 +71,7 @@ void Ex1() {
 
 void Ex2() {
 	int ar[] = { 56, 32, 5, 90, 40, 42, 19 }, // Initialize the array
-		size = sizeof(ar) / sizeof(int);
+	size = sizeof(ar) / sizeof(int);
 	SelectionSort(ar, size);
 	printf("\nSorted array:\n");
 	printArr(ar, size);
@@ -128,36 +128,37 @@ int equalArraysSameSize(int A[], int B[], int size) {
 }
 
 void SelectionSort(int ar[], int n) {
-	/*Scheme
-	1. find 
+	/*
+	1. find max value place: max_index equals to the max value place
+	2. swap the max value with the last place
+	3. each iteration the maxItem and swap will get n-i array.
 	*/
-	int d = 0;
-	int* max_val_place = 0;
-	int* last_ar_item = ar[n - 1];
-	while (d < n) {
-		maxItem(ar, (n-d), max_val_place);
-		swap(max_val_place, last_ar_item);
-		d++;
+	for (int i = 0; i < n - 1; i++) {
+		int max_index = 0;
+		maxItem(ar, n - i, &max_index); // every iteration the array the 
+		swap(&ar[n-1-i], &ar[max_index]);
 	}
 }
 
 void swap(int* x, int* y) {
 	/*Scheme:
-	1. generating temp value <- max
+	1. temp value <- last item
+	2. last item will defined as max value
+	3. max value's place will defined as the value of the last number.
 	*/
-	int* temp = y;
-	y = x;
-	x = temp;
+	int temp = *x;
+	*x = *y;
+	*y = temp;
 }
 
-void maxItem(int ar[], int size, int *p_max) {
+void maxItem(int ar[], int size, int* p_max) {
 	/*Scheme:
 	1. find the maximum item place in the array.
 	2. pointing on the max value place
 	*/
-	*p_max = 0; // initializng pointer value
+	*p_max = 0; // Initialize max_val_place to the first element
 	for (int i = 1; i < size; i++) {
-		if (ar[i] > ar[*p_max]) {
+		if (ar[i] > ar[*p_max]) { // if _ |_|_ _ > |_| _ _ _ 
 			*p_max = i; // pointing on the max value place
 		}
 	}
@@ -168,7 +169,12 @@ int sortRemoveDup(int ar[], int n) {
 }
 
 void printArr(int ar[], int size) {
-	/*Write Code Here!*/
+	/*Printning array*/
+	printf("[ ");
+	for (int i = 0; i < size; i++) {
+		printf("%d ", *(ar + i));
+	}
+	printf("]");
 }
 
 char findFirstVowel(char* str) {
