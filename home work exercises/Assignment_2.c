@@ -6,8 +6,8 @@
 
 /*
 	Assigned by: 
-		Student1_Full_Name #ID 
-		Student2_Full_Name #ID
+		Ido Weinstock, Group 3 #211677083
+		Evyatar Hagay, Group 4 #209164250
 */
 
 /* Function declarations */
