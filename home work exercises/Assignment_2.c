@@ -165,7 +165,27 @@ void maxItem(int ar[], int size, int* p_max) {
 }
 
 int sortRemoveDup(int ar[], int n) {
-	/*Write Code Here!*/
+	/*
+	Scheme:
+	1. eliminate the duplications
+	2. return the number of duplications
+	*/
+	int new_size = n;
+	int duplications = 0; // number of duplications in the array
+	for (int i = 0; i < new_size; i++) {
+		for (int j = i + 1; j < new_size; j++) { // j = i + 1 - to avoid comparing the same number
+			if (ar[i] == ar[j]) {
+				for (int k = j; k < new_size - 1; k++) {// the shifting process
+					ar[k] = ar[k + 1];// shifting the array
+				}
+				new_size--;
+				duplications++;
+				j--;
+			}
+		}
+	}
+	printf("\nNumber of duplications: %d", duplications);
+	return new_size;
 }
 
 void printArr(int ar[], int size) {
@@ -178,7 +198,24 @@ void printArr(int ar[], int size) {
 }
 
 char findFirstVowel(char* str) {
-	/*Write Code Here!*/
+	/*Scheme
+	1. detection of A ,E ,I ,O ,U (big and small)
+	2. return the same letter detected (small or letter)
+	*/
+	int i = 0;
+	char index;
+	while (str[i] != '\0') {
+		index = str[i];
+		if (index == 'A' || index == 'a' ||
+			index == 'E' || index == 'e' ||
+			index == 'I' || index == 'i' ||
+			index == 'O' || index == 'o' ||
+			index == 'U' || index == 'u') {
+			return index;
+		}
+		i++;
+	}
+	return '\0';
 }
 
 /* ------------------- */
