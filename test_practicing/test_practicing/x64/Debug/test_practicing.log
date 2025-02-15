@@ -1,4 +1,3 @@
-﻿  2023_semester_a_moed_b_q_4.c
-C:\Users\idowe\VisualStusioProjects\C-programming-HIT\test_practicing\test_practicing\2023_semester_a_moed_b_q_4.c(26,57): warning C4013: 'strlen' undefined; assuming extern returning int
-C:\Users\idowe\VisualStusioProjects\C-programming-HIT\test_practicing\test_practicing\2023_semester_a_moed_b_q_4.c(56,1): warning C4715: 'halves_equal': not all control paths return a value
+﻿  2023_semester_a_moed_a_q_3.c
+C:\Users\idowe\VisualStusioProjects\C-programming-HIT\test_practicing\test_practicing\2023_semester_a_moed_a_q_3.c(64,1): warning C4716: 'num_of_squared_perfect': must return a value
   test_practicing.vcxproj -> C:\Users\idowe\VisualStusioProjects\C-programming-HIT\test_practicing\x64\Debug\test_practicing.exe

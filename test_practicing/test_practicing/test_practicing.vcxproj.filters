@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="2023_semester_a_moed_b_q_4.c">
+    <ClCompile Include="2023_semester_a_moed_a_q_3.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
