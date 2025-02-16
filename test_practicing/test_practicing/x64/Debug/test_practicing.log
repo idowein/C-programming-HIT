@@ -1,3 +1,8 @@
-﻿  2023_semester_a_moed_a_q_3.c
-C:\Users\idowe\VisualStusioProjects\C-programming-HIT\test_practicing\test_practicing\2023_semester_a_moed_a_q_3.c(64,1): warning C4716: 'num_of_squared_perfect': must return a value
+﻿  2023_semster_a_moed_a_q_4.c
+C:\Users\idowe\VisualStusioProjects\C-programming-HIT\test_practicing\test_practicing\2023_semster_a_moed_a_q_4.c(24,17): warning C4047: 'function': 'char *' differs in levels of indirection from 'char (*)[7]'
+C:\Users\idowe\VisualStusioProjects\C-programming-HIT\test_practicing\test_practicing\2023_semster_a_moed_a_q_4.c(24,17): warning C4024: 'even_or_odd': different types for formal and actual parameter 1
+C:\Users\idowe\VisualStusioProjects\C-programming-HIT\test_practicing\test_practicing\2023_semster_a_moed_a_q_4.c(25,17): warning C4047: 'function': 'char *' differs in levels of indirection from 'char (*)[8]'
+C:\Users\idowe\VisualStusioProjects\C-programming-HIT\test_practicing\test_practicing\2023_semster_a_moed_a_q_4.c(25,17): warning C4024: 'even_or_odd': different types for formal and actual parameter 1
+C:\Users\idowe\VisualStusioProjects\C-programming-HIT\test_practicing\test_practicing\2023_semster_a_moed_a_q_4.c(31,16): warning C4013: 'half_clac' undefined; assuming extern returning int
+C:\Users\idowe\VisualStusioProjects\C-programming-HIT\test_practicing\test_practicing\2023_semster_a_moed_a_q_4.c(41,27): warning C4013: 'strlen' undefined; assuming extern returning int
   test_practicing.vcxproj -> C:\Users\idowe\VisualStusioProjects\C-programming-HIT\test_practicing\x64\Debug\test_practicing.exe
